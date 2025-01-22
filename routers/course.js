@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { getAllCourses, getCourseById, deleteCourseById, updateCourseById, addCourse } from "../controllers/course.js"
-
+ 
 const router=Router();
 
 router.get("",getAllCourses);

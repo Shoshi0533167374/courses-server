@@ -1,6 +1,6 @@
 import { Schema, model, Types } from "mongoose";
 
-
+ 
 //סכמת קורס מינימלי
 const minimalCourseSchema = Schema({
     _id: { type: Types.ObjectId, ref: "course" },

@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 import { userModel } from "../models/user.js"
-
+ 
 
 // פונקציה של רישום משתמש חדש למערכת 
 export const signUp = async (req, res) => {

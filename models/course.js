@@ -1,6 +1,6 @@
 import { Schema, model} from "mongoose";
 
-
+ 
 //סכמת מרצה בקורס
 const lecturerSchema = Schema({
     fullName: { type: String, require: true },

@@ -2,8 +2,8 @@ import mongoose from "mongoose";
 
 import { courseModel } from "../models/course.js";
 
-
-//פונקציה המחזירה את כל הקורסים
+ 
+// פונקציה המחזירה את כל הקורסים
 export const getAllCourses = async (req, res) => {
     try {
         let data = await courseModel.find();

@@ -2,9 +2,9 @@ import mongoose from "mongoose";
 import { courseModel } from "../models/course.js";
 import { userModel } from "../models/user.js";
 import { orderModel } from "../models/order.js";
+ 
 
-
-//פונקציה המחזירה את כל ההזמנות
+// פונקציה המחזירה את כל ההזמנות
 export const getAllOrders = async (req, res) => {
     try {
         let data = await orderModel.find();
