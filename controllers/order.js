@@ -3,6 +3,8 @@ import { courseModel } from "../models/course.js";
 import { userModel } from "../models/user.js";
 import { orderModel } from "../models/order.js";
 
+
+//פונקציה המחזירה את כל ההזמנות
 export const getAllOrders = async (req, res) => {
     try {
         let data = await orderModel.find();
@@ -13,6 +15,7 @@ export const getAllOrders = async (req, res) => {
     }
 }
 
+//משתמש ID פונקציה המחזירה הזמנה לפי 
 export const getOrdersByUserId = async (req, res) => {
     let { userId } = req.params;
     try {
@@ -26,6 +29,7 @@ export const getOrdersByUserId = async (req, res) => {
     }
 }
 
+//פונקציה המוסיפה הזמנה
 export const addOrder = async (req, res) => {
     let { body } = req;
     if (!body.userId || !body.courses || !body.courses.length)
@@ -40,6 +44,7 @@ export const addOrder = async (req, res) => {
     }
 }
 
+//ID פונקציה המוחקת הזמנה לפי 
 export const deleteOrderById = async (req, res) => {
     let { id } = req.params;
     if (!mongoose.isValidObjectId(id))
@@ -58,6 +63,7 @@ export const deleteOrderById = async (req, res) => {
     }
 }
 
+//(פונקציה המעדכנת שהתשלום עבור הזמנה מסוימת אכן התקבל בהצלחה (בשני לחודש
 export const updateOrderPayment= async (req, res) => {
     let { id } = req.params;
     if (!mongoose.isValidObjectId(id))

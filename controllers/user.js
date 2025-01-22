@@ -2,6 +2,8 @@ import mongoose from "mongoose";
 
 import { userModel } from "../models/user.js"
 
+
+// פונקציה של רישום משתמש חדש למערכת 
 export const signUp = async (req, res) => {
     let { body } = req;
     if (!body.userName || !body.password || !body.email)
@@ -16,6 +18,7 @@ export const signUp = async (req, res) => {
     }
 }
 
+// פונקציה המחזירה את כל המשתמשים  
 export const getAllUsers = async (req, res) => {
     try {
         let data = await userModel.find().select('-password');
@@ -26,6 +29,7 @@ export const getAllUsers = async (req, res) => {
     }
 }
 
+//ID פונקציה המחזירה משתמש לפי 
 export const getUserById = async (req, res) => {
     let { id } = req.params;
     if (!mongoose.isValidObjectId(id))
@@ -41,6 +45,7 @@ export const getUserById = async (req, res) => {
     }
 }
 
+// פונקציה המעדכנת פרטי משתמש חוץ מסיסמה   
 export const UpdateExceptPassword = async (req, res) => {
     let { id } = req.params;
     if (!mongoose.isValidObjectId(id))
@@ -58,6 +63,7 @@ export const UpdateExceptPassword = async (req, res) => {
     }
 }
 
+// פונקציה המעדכנת סיסמת משתמש     
 export const UpdatePassword = async (req, res) => {
     let { id } = req.params;
     if (!mongoose.isValidObjectId(id))
@@ -75,6 +81,7 @@ export const UpdatePassword = async (req, res) => {
     }
 }
 
+//פונקציה של התחברות משתמש למערכת לפי שם משתמש וסיסמה
 export const logIn = async (req, res) => {
     let { userName, password } = req.body;
     if (!userName || !password)

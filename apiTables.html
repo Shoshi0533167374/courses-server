@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="he">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Tables</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            direction: rtl;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #f4f4f4;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>API Tables</h1>
+
+    <h2>Courses</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>CRUD</th>
+                <th>כתובת</th>
+                <th>פרמטרים</th>
+                <th>Body</th>
+                <th>מה עושה?</th>
+                <th>איזה סוגי שגיאות עלולות לחזור?</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>GET</td>
+                <td>api/courses</td>
+                <td>-</td>
+                <td>-</td>
+                <td>מחזירה את כל הקורסים</td>
+                <td>-</td>
+            </tr>
+            <tr>
+                <td>GET</td>
+                <td>api/courses/id</td>
+                <td>id</td>
+                <td>-</td>
+                <td>מחזירה קורס לפי id</td>
+                <td>
+                    <li>ID אינו תקין</li>
+                    <li>ID אינו קיים</li>
+                </td>
+            </tr>
+            <tr>
+                <td>DELETE</td>
+                <td>api/courses/id</td>
+                <td>id</td>
+                <td>-</td>
+                <td>מוחקת קורס לפי id</td>
+                <td>
+                    <li>ID אינו תקין</li>
+                    <li>ID אינו קיים</li>
+                </td>
+            </tr>
+            <tr>
+                <td>PUT</td>
+                <td>api/courses/id</td>
+                <td>id</td>
+                <td>name, description, starDate, imagePath, price, studyDays, category, lecturer { fullName, phone,
+                    email }</td>
+                <td>מעדכנת קורס לפי id</td>
+                <td>
+                    <li>ID אינו תקין</li>
+                    <li>ID אינו קיים</li>
+                </td>
+            </tr>
+            <tr>
+                <td>POST</td>
+                <td>api/courses</td>
+                <td>-</td>
+                <td>name, description, starDate, imagePath, price, studyDays, category, lecturer { fullName, phone,
+                    email }</td>
+                <td>מוסיפה קורס</td>
+                <td>
+                    <li>חסרים פרטים</li>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>Users</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>CRUD</th>
+                <th>כתובת</th>
+                <th>פרמטרים</th>
+                <th>Body</th>
+                <th>מה עושה?</th>
+                <th>איזה סוגי שגיאות עלולות לחזור?</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>POST</td>
+                <td>api/users</td>
+                <td>-</td>
+                <td>username, password, role, email</td>
+                <td>רישום משתמש</td>
+                <td>
+                    <li>חסרים פרטים</li>
+                </td>
+            </tr>
+            <tr>
+                <td>GET</td>
+                <td>api/users</td>
+                <td>-</td>
+                <td>-</td>
+                <td>מחזירה את כל המשתמשים</td>
+                <td>-</td>
+            </tr>
+            <tr>
+                <td>GET</td>
+                <td>api/users/id</td>
+                <td>id</td>
+                <td>-</td>
+                <td>מחזירה משתמש לפי ID</td>
+                <td>
+                    <li>ID אינו תקין</li>
+                    <li>ID אינו קיים</li>
+                </td>
+            </tr>
+            <tr>
+                <td>PUT</td>
+                <td>api/users/id</td>
+                <td>id</td>
+                <td>username, role, email</td>
+                <td>מעדכנת פרטי משתמש ללא סיסמה</td>
+                <td>
+                    <li>ID אינו תקין</li>
+                    <li>אם שולחים סיסמה</li>
+                    <li>ID אינו קיים</li>
+                </td>
+            </tr>
+            <tr>
+                <td>PUT</td>
+                <td>api/users/password/id</td>
+                <td>id</td>
+                <td>password</td>
+                <td>מעדכנת סיסמת משתמש</td>
+                <td>
+                    <li>ID אינו תקין</li>
+                    <li>אם לא שולחים סיסמה</li>
+                    <li>ID אינו קיים</li>
+                </td>
+            </tr>
+            <tr>
+                <td>POST</td>
+                <td>api/users/login</td>
+                <td>-</td>
+                <td>username, password</td>
+                <td>התחברות לפי שם משתמש וסיסמה</td>
+                <td>
+                    <li>חסרים פרטים</li>
+                    <li>סיסמה או שם משתמש לא נכונים</li>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>Orders</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>CRUD</th>
+                <th>כתובת</th>
+                <th>פרמטרים</th>
+                <th>Body</th>
+                <th>מה עושה?</th>
+                <th>איזה סוגי שגיאות עלולות לחזור?</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>GET</td>
+                <td>api/orders</td>
+                <td>-</td>
+                <td>-</td>
+                <td>מחזירה את כל ההזמנות</td>
+                <td>-</td>
+            </tr>
+            <tr>
+                <td>GET</td>
+                <td>api/orders/userId</td>
+                <td>userId</td>
+                <td>-</td>
+                <td>מחזירה הזמנות לפי קוד משתמש</td>
+                <td>
+                    <li>userId אינו קיים</li>
+                </td>
+            </tr>
+            <tr>
+                <td>POST</td>
+                <td>api/orders</td>
+                <td>-</td>
+                <td>userId, courses: [ minimalCourse: { _id, name, price } ]</td>
+                <td>מוסיפה הזמנה</td>
+                <td>
+                    <li>חסרים פרטים</li>
+                </td>
+            </tr>
+            <tr>
+                <td>DELETE</td>
+                <td>api/orders/id</td>
+                <td>id</td>
+                <td>-</td>
+                <td>ביטול הזמנה במקרה שההזמנה עדיין לא שולמה</td>
+                <td>
+                    <li>ID אינו תקין</li>
+                    <li>ID אינו קיים</li>
+                    <li>אם הקורס שולם לא ניתן לבטל</li>
+                </td>
+            </tr>
+            <tr>
+                <td>PUT</td>
+                <td>api/orders/id</td>
+                <td>id</td>
+                <td>-</td>
+                <td>מעדכן את התשלום על ההזמנה</td>
+                <td>
+                    <li>ID אינו תקין</li>
+                    <li>ID אינו קיים</li>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+
+</html>

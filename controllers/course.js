@@ -3,6 +3,7 @@ import mongoose from "mongoose";
 import { courseModel } from "../models/course.js";
 
 
+//פונקציה המחזירה את כל הקורסים
 export const getAllCourses = async (req, res) => {
     try {
         let data = await courseModel.find();
@@ -13,6 +14,7 @@ export const getAllCourses = async (req, res) => {
     }
 }
 
+//ID פונקציה המחזירה קורס לפי   
 export const getCourseById = async (req, res) => {
     let { id } = req.params;
     if (!mongoose.isValidObjectId(id))
@@ -28,6 +30,7 @@ export const getCourseById = async (req, res) => {
     }
 }
 
+//ID פונקציה המוחקת קורס לפי 
 export const deleteCourseById = async (req, res) => {
     let { id } = req.params;
     if (!mongoose.isValidObjectId(id))
@@ -43,6 +46,7 @@ export const deleteCourseById = async (req, res) => {
     }
 }
 
+//ID פונקציה המעדכנת קורס לפי 
 export const updateCourseById = async (req, res) => {
     let { id } = req.params;
     if (!mongoose.isValidObjectId(id))
@@ -58,6 +62,7 @@ export const updateCourseById = async (req, res) => {
     }
 }
 
+//פונקציה המוסיפה קורס
 export const addCourse = async (req, res) => {
     let { body } = req;
     if (!body.name || !body.description || !body.startDate || !body.imagePath || !body.price
