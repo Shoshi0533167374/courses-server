@@ -1,6 +1,6 @@
-import { Schema, model} from "mongoose";
+import { Schema, model } from "mongoose";
 
- 
+
 //סכמת מרצה בקורס
 const lecturerSchema = Schema({
     fullName: { type: String, require: true },
@@ -16,7 +16,7 @@ const courseSchema = Schema({
     imagePath: { type: String, require: true },
     price: { type: Number, require: true },
     studyDays: { type: [String], require: true },
-    category: { type: String, require: true },
+    category: String,
     lecturer: { type: lecturerSchema, require: true }
 });
 
