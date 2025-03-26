@@ -6,7 +6,7 @@ const router=Router();
 
 router.get("",getAllCourses);
 router.get("/total",getTotalCoursesPages);
-// router.get("/:id",getCourseById);
+router.get("/:id",getCourseById);
 router.delete("/:id",isUserAdmin,deleteCourseById);
 router.put("/:id",isUserAdmin,updateCourseById);
 router.post("",isUserAdmin,addCourse);
